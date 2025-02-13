@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Details - EduLearn</title>
+    <link rel="stylesheet" href="course_d.css">
+</head>
+<body>
+    <nav class="navbar">
+        <h1 class="logo">NextGen Learning</h1>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="course.html">Courses</a></li>
+            <li><a href="#resources">Resources</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    
+    <header class="banner">
+        <h2>Data Science Course</h2>
+        <p>Learn the fundamentals of Data Science, Machine Learning, and AI</p>
+    </header>
+    
+    <section class="course-detail">
+        <h3>Course Overview</h3>
+        <p>This course provides an introduction to Data Science concepts, including data analysis, machine learning algorithms, and data visualization techniques.</p>
+        
+        <h3>Learning Outcomes</h3>
+        <ul>
+            <li>Understand data wrangling and preprocessing</li>
+            <li>Analyze datasets using Python libraries such as Pandas and NumPy</li>
+            <li>Build and evaluate machine learning models</li>
+        </ul>
+        
+        <h3>Estimated Completion Time</h3>
+        <p>6 weeks (Self-paced)</p>
+    </section>
+    
+    <section class="video-section">
+        <h3>Video Tutorials</h3>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/X3paOmcrTjQ" frameborder="0" allowfullscreen></iframe>
+    </section>
+    
+    <section class="resources-section">
+        <h3>Downloadable Resources</h3>
+        <ul>
+            <li><a href="resources/data_science_basics.pdf" download>Data Science Basics (PDF)</a></li>
+            <li><a href="resources/data_science_slides.pptx" download>Course Slides (PPT)</a></li>
+        </ul>
+    </section>
+   <!-- Quiz Introduction -->
+<section class="quiz-container" id="quizIntro">
+    <h2>Data Science Quiz</h2>
+    <p>Test your knowledge of Data Science! This quiz consists of 5 multiple-choice questions. You will have 60 seconds to complete the quiz.</p>
+    <button onclick="startQuiz()">Start Quiz</button>
+</section>
+
+<!-- Quiz Section -->
+<section class="quiz-container hidden" id="quizSection">
+    <h2>Quiz: Data Science</h2>
+    <p class="timer">Time Left: <span id="time">60</span> seconds</p>
+
+    <form id="quizForm">
+        <div>
+            <p>1. What is the primary programming language used in Data Science?</p>
+            <input type="radio" name="q1" value="a"> Java<br>
+            <input type="radio" name="q1" value="b"> Python<br>
+            <input type="radio" name="q1" value="c"> C++<br>
+        </div>
+
+        <div>
+            <p>2. Which library is widely used for data visualization in Python?</p>
+            <input type="radio" name="q2" value="a"> NumPy<br>
+            <input type="radio" name="q2" value="b"> Matplotlib<br>
+            <input type="radio" name="q2" value="c"> Pandas<br>
+        </div>
+
+        <div>
+            <p>3. What does the term "Supervised Learning" refer to?</p>
+            <input type="radio" name="q3" value="a"> Learning without labeled data<br>
+            <input type="radio" name="q3" value="b"> Learning from labeled data<br>
+            <input type="radio" name="q3" value="c"> Learning from a reward-based system<br>
+        </div>
+
+        <div>
+            <p>4. Which algorithm is used for classification problems?</p>
+            <input type="radio" name="q4" value="a"> K-Means Clustering<br>
+            <input type="radio" name="q4" value="b"> Decision Trees<br>
+            <input type="radio" name="q4" value="c"> Apriori Algorithm<br>
+        </div>
+
+        <div>
+            <p>5. What does "Big Data" refer to?</p>
+            <input type="radio" name="q5" value="a"> A large dataset that cannot be processed using traditional methods<br>
+            <input type="radio" name="q5" value="b"> A database management system<br>
+            <input type="radio" name="q5" value="c"> A cloud computing service<br>
+        </div>
+
+        <button type="button" onclick="submitQuiz()">Submit Quiz</button>
+    </form>
+</section>
+
+<!-- Quiz Results -->
+<section class="quiz-container hidden" id="quizResults">
+    <h2>Quiz Results</h2>
+    <p id="scoreMessage"></p>
+    <button onclick="retryQuiz()">Retry Quiz</button>
+</section>
+
+<script>
+    let timer;
+    let timeLeft = 60;
+
+    function startQuiz() {
+        document.getElementById("quizIntro").classList.add("hidden");
+        document.getElementById("quizSection").classList.remove("hidden");
+
+        timeLeft = 60;
+        document.getElementById("time").innerText = timeLeft;
+        timer = setInterval(() => {
+            timeLeft--;
+            document.getElementById("time").innerText = timeLeft;
+            if (timeLeft <= 0) {
+                clearInterval(timer);
+                submitQuiz();
+            }
+        }, 1000);
+    }
+
+    function submitQuiz() {
+        clearInterval(timer);
+
+        let answers = {
+            q1: "b",
+            q2: "b",
+            q3: "b",
+            q4: "b",
+            q5: "a"
+        };
+
+        let score = 0;
+        let totalQuestions = Object.keys(answers).length;
+
+        for (let key in answers) {
+            let selected = document.querySelector(`input[name="${key}"]:checked`);
+            if (selected && selected.value === answers[key]) {
+                score++;
+            }
+        }
+
+        document.getElementById("quizSection").classList.add("hidden");
+        document.getElementById("quizResults").classList.remove("hidden");
+
+        let scoreMessage = `You scored ${score} out of ${totalQuestions}.`;
+        document.getElementById("scoreMessage").innerText = scoreMessage;
+    }
+
+    function retryQuiz() {
+        document.getElementById("quizResults").classList.add("hidden");
+        document.getElementById("quizIntro").classList.remove("hidden");
+    }
+</script>
+
+</body>
+</html>

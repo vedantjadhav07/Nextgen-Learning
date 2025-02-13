@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resource Page</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #8749f2;
+            padding: 15px 20px;
+            color: white;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+        }
+
+        .nav-links li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .nav-links li a:hover {
+            color: #ddd;
+        }
+
+        /* Page Header */
+        .header {
+            text-align: center;
+            background-color: #6a38c4;
+            color: white;
+            padding: 50px 20px;
+            margin-top: 60px;
+        }
+
+        /* Search Bar */
+        .search-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        #searchBox {
+            padding: 10px;
+            width: 60%;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+
+        /* Resource Section */
+        .resources-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 20px;
+            gap: 20px;
+        }
+
+        .resource-category {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 30%;
+            min-width: 250px;
+        }
+
+        h2 {
+            color: #333;
+            text-align: center;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul li {
+            padding: 8px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        ul li:last-child {
+            border-bottom: none;
+        }
+
+        ul li a {
+            text-decoration: none;
+            color: #0073e6;
+            font-weight: bold;
+        }
+
+        ul li a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <h1 class="logo">NextGen Learning</h1>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="course.html">Courses</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <header class="header">
+        <h2>Explore Educational Resources</h2>
+        <p>Find PDFs, eBooks, and presentations to boost your learning</p>
+    </header>
+
+    <!-- Search Bar -->
+    <div class="search-container">
+        <input type="text" id="searchBox" placeholder="Search resources..." onkeyup="filterResources()">
+    </div>
+
+    <!-- Resources -->
+    <div class="resources-container">
+        <div class="resource-category" id="web-dev">
+            <h2>Web Development</h2>
+            <ul>
+                <li><a href="#">HTML & CSS Guide (PDF)</a></li>
+                <li><a href="#">JavaScript Basics (eBook)</a></li>
+                <li><a href="#">Responsive Web Design (Presentation)</a></li>
+            </ul>
+        </div>
+
+        <div class="resource-category" id="data-science">
+            <h2>Data Science</h2>
+            <ul>
+                <li><a href="#">Python for Data Science (PDF)</a></li>
+                <li><a href="#">Machine Learning Basics (eBook)</a></li>
+                <li><a href="#">Data Visualization Techniques (Presentation)</a></li>
+            </ul>
+        </div>
+
+        <div class="resource-category" id="cyber-security">
+            <h2>Cyber Security</h2>
+            <ul>
+                <li><a href="#">Introduction to Cyber Security (PDF)</a></li>
+                <li><a href="#">Ethical Hacking Basics (eBook)</a></li>
+                <li><a href="#">Network Security Fundamentals (Presentation)</a></li>
+            </ul>
+        </div>
+
+        <div class="resource-category" id="ai">
+            <h2>Artificial Intelligence</h2>
+            <ul>
+                <li><a href="#">Introduction to AI (PDF)</a></li>
+                <li><a href="#">Neural Networks Explained (eBook)</a></li>
+                <li><a href="#">Deep Learning Fundamentals (Presentation)</a></li>
+            </ul>
+        </div>
+
+        <div class="resource-category" id="cloud-computing">
+            <h2>Cloud Computing</h2>
+            <ul>
+                <li><a href="#">Cloud Basics (PDF)</a></li>
+                <li><a href="#">AWS & Azure Overview (eBook)</a></li>
+                <li><a href="#">Deploying Apps in the Cloud (Presentation)</a></li>
+            </ul>
+        </div>
+
+        <div class="resource-category" id="blockchain">
+            <h2>Blockchain Technology</h2>
+            <ul>
+                <li><a href="#">Blockchain Fundamentals (PDF)</a></li>
+                <li><a href="#">Smart Contracts (eBook)</a></li>
+                <li><a href="#">Cryptocurrency & Security (Presentation)</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2025 EduLearn. Made by Vedant</p>
+    </footer>
+
+    <!-- JavaScript for Filtering -->
+    <script>
+        function filterResources() {
+            let input = document.getElementById("searchBox").value.toLowerCase();
+            let categories = document.querySelectorAll(".resource-category");
+            
+            categories.forEach(category => {
+                let items = category.querySelectorAll("li");
+                let match = false;
+                
+                items.forEach(item => {
+                    let text = item.textContent.toLowerCase();
+                    if (text.includes(input)) {
+                        item.style.display = "block";
+                        match = true;
+                    } else {
+                        item.style.display = "none";
+                    }
+                });
+                
+                category.style.display = match ? "block" : "none";
+            });
+        }
+    </script>
+
+</body>
+</html>

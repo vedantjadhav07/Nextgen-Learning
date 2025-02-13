@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses - EduLearn</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <h1 class="logo">NextGen Learning</h1>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="course.html">Courses</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+    
+    <header class="banner">
+        <h2>Explore Our Courses</h2>
+        <p>Choose from a variety of subjects to enhance your skills</p>
+    </header>
+    
+    <!-- Filter Bar (Only Difficulty) -->
+    <div class="filter-bar">
+        <label for="difficulty">Difficulty:</label>
+        <select id="difficulty">
+            <option value="all">All</option>
+            <option value="beginner">Beginner</option>
+            <option value="intermediate">Intermediate</option>
+            <option value="advanced">Advanced</option>
+        </select>
+    </div>
+    
+    <!-- Courses Section -->
+    <section id="courses" class="courses-section">
+        <div class="courses-container">
+            <!-- Existing Courses -->
+            <div class="course" data-difficulty="beginner">
+                <img src="web.png" alt="Web Development">
+                <h4>Web Development</h4>
+                <p>Learn HTML, CSS, and JavaScript</p>
+                <p class="difficulty">Beginner</p>
+                <a href="web_dev.html" class="learn-more">Learn More</a>
+            </div>
+
+            <div class="course" data-difficulty="intermediate">
+                <img src="data_sci.png" alt="Data Science">
+                <h4>Data Science</h4>
+                <p>Master data analysis and machine learning</p>
+                <p class="difficulty">Intermediate</p>
+                <a href="data_science.html" class="learn-more">Learn More</a>
+            </div>
+
+            <div class="course" data-difficulty="advanced">
+                <img src="cyber_sec.png" alt="Cybersecurity">
+                <h4>Cybersecurity</h4>
+                <p>Understand security principles and best practices</p>
+                <p class="difficulty">Advanced</p>
+                <a href="cyber.html" class="learn-more">Learn More</a>
+            </div>
+
+            <!-- Newly Added Courses -->
+            <div class="course" data-difficulty="beginner">
+                <img src="python.png" alt="Python Programming">
+                <h4>Python Programming</h4>
+                <p>Start coding with Python basics</p>
+                <p class="difficulty">Beginner</p>
+                <a href="python.html" class="learn-more">Learn More</a>
+            </div>
+
+            <div class="course" data-difficulty="intermediate">
+                <img src="cloud.png" alt="Cloud Computing">
+                <h4>Cloud Computing</h4>
+                <p>Learn AWS, Azure, and cloud technologies</p>
+                <p class="difficulty">Intermediate</p>
+                <a href="cloud_cmp.html" class="learn-more">Learn More</a>
+            </div>
+
+            <div class="course" data-difficulty="advanced">
+                <img src="ai.png" alt="Artificial Intelligence">
+                <h4>Artificial Intelligence</h4>
+                <p>Explore AI, deep learning, and neural networks</p>
+                <p class="difficulty">Advanced</p>
+                <a href="ai.html" class="learn-more">Learn More</a>
+            </div>
+        </div>
+    </section>
+    
+    <footer class="footer">
+        <p>&copy; 2025 EduLearn. Made by Vedant</p>
+    </footer>
+
+    <!-- JavaScript for Filtering -->
+    <script>
+        document.getElementById("difficulty").addEventListener("change", function() {
+            let selectedDifficulty = this.value;
+            let courses = document.querySelectorAll(".course");
+
+            courses.forEach(course => {
+                if (selectedDifficulty === "all" || course.getAttribute("data-difficulty") === selectedDifficulty) {
+                    course.style.display = "block";
+                } else {
+                    course.style.display = "none";
+                }
+            });
+        });
+    </script>
+
+    <style>
+        /* Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #8749f2;
+            padding: 15px 20px;
+            color: white;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+            padding-right: 25px;
+        }
+
+        .nav-links li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .nav-links li a:hover {
+            color: #ddd;
+        }
+
+        .banner {
+            text-align: center;
+            background-color: #6a38c4;
+            color: white;
+            padding: 50px 20px;
+            margin-top: 60px;
+        }
+
+        .filter-bar {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 20px 0;
+            padding: 10px;
+            background-color: #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .courses-section {
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        .courses-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .course {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 250px;
+            transition: transform 0.3s ease-in-out;
+            text-align: center;
+        }
+
+        .course:hover {
+            transform: scale(1.05);
+        }
+
+        .course img {
+            width: 100%;
+            border-radius: 5px;
+        }
+
+        .difficulty {
+            font-weight: bold;
+            color: #6a38c4;
+        }
+
+        .learn-more {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 8px 15px;
+            background-color: #8749f2;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .learn-more:hover {
+            background-color: #6a38c4;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+            margin-top: 30px;
+        }
+    </style>
+</body>
+</html>

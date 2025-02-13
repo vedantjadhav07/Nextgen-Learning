@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="styles.css">
+   
+    <style> 
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+
+        /* Navbar Styling */
+        .navbar {
+            background-color: #8749f2;
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        .navbar h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+            margin: 0;
+            padding-right: 25px;
+        }
+
+        .nav-links li {
+            display: inline;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #ddd;
+        }
+
+        .content {
+            margin-top: 80px;
+        }
+
+        .contact-section {
+            background: white;
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 600px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #8749f2;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #6a38c4;
+        }
+
+        .social-media, .map-section {
+            margin: 20px auto;
+            padding: 20px;
+            max-width: 600px;
+        }
+
+        .map-section iframe {
+            width: 100%;
+            border-radius: 5px;
+        }
+
+        .social-media a {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    color: #333;
+    font-size: 18px;
+    margin-right: 15px;
+    transition: color 0.3s ease;
+}
+
+.social-media a i {
+    margin-right: 8px;
+    font-size: 20px;
+}
+
+.social-media a:hover {
+    color: #8749f2; /* Your theme color */
+}
+
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <h1>NextGen Learning</h1>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="course.html">Courses</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="content">
+        <section class="contact-section">
+            <h2>Get in Touch</h2>
+            <form id="contactForm" action="https://formspree.io/f/meoellbb" method="POST">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <input type="text" name="subject" placeholder="Subject" required>
+                <textarea name="message" placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+            
+           
+            
+            <p id="successMessage" style="display:none; color: green;">Message sent successfully!</p>
+        </section>
+
+      
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+<section class="social-media">
+    <h2>Follow Us</h2>
+    <a href="https://www.instagram.com/vedantx___07" target="_blank">
+        <i class="fab fa-instagram"></i> Instagram
+    </a> | 
+    <a href="https://www.twitter.com/vednat-jadhav" target="_blank">
+        <i class="fab fa-twitter"></i> Twitter
+    </a> | 
+    <a href="https://github.com/vedantjadhav07" target="_blank">
+        <i class="fab fa-github"></i> GitHub
+    </a> | 
+    <a href="https://www.linkedin.com/in/vedant-jadhav-59a6b3329" target="_blank">
+        <i class="fab fa-linkedin"></i> LinkedIn
+    </a>
+</section>
+
+
+        <section class="map-section">
+            <h2>Our Location</h2>
+            <iframe src="https://www.google.com/maps/embed?..." width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </section>
+    </div>
+    <script defer src="email_msg.js"></script>
+   
+</body>
+</html>

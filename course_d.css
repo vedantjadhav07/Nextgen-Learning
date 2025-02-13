@@ -1,0 +1,126 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #8749f2;
+    padding: 15px 20px;
+    color: white;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+    padding-right: 25px;
+}
+
+.nav-links li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+    color: #ddd;
+}
+
+.banner {
+    text-align: center;
+    background-color: #6a38c4;
+    color: white;
+    padding: 50px 20px;
+    margin-top: 60px;
+}
+
+.course-detail, .video-section, .resources-section {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+h3 {
+    color: #8749f2;
+}
+
+.video-section iframe {
+    display: block;
+    margin: 20px auto;
+    width: 100%;
+    max-width: 560px;
+    border-radius: 5px;
+}
+
+.resources-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.resources-section ul li a {
+    text-decoration: none;
+    color: #6a38c4;
+    font-weight: bold;
+}
+
+.resources-section ul li a:hover {
+    text-decoration: underline;
+}
+
+.footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    color: white;
+    margin-top: 30px;
+}
+
+.quiz-container {
+    width: 60%;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    
+    margin-top: 20px;
+}
+
+.hidden {
+    display: none;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    margin-top: 10px;
+    cursor: pointer;
+    border: none;
+    background-color: #0073e6;
+    color: white;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #005bb5;
+}
+
+.timer {
+    font-size: 18px;
+    color: red;
+    font-weight: bold;
+}

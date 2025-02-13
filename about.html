@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+
+        /* Navbar Styling */
+        .navbar {
+            background-color: #8749f2;
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        .navbar h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+            margin: 0;
+            padding-right: 25px;
+        }
+
+        .nav-links li {
+            display: inline;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #ddd;
+        }
+
+        .content {
+            margin-top: 80px;
+        }
+
+        .about-section, .team-section, .testimonials-section {
+            background: white;
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 800px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        .team-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .team-member {
+            text-align: center;
+            background: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 200px;
+        }
+
+        .team-member img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+
+        .testimonial {
+            background: #eee;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+
+        .testimonial h4 {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <h1>NextGen Learning</h1>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="course.html">Courses</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="content">
+        <section class="about-section">
+            <h2>Our Purpose</h2>
+            <p>We are dedicated to providing high-quality educational resources to help learners acquire new skills and knowledge in Web Development, Data Science, and Cyber Security.</p>
+        </section>
+
+        <section class="team-section">
+            <h2>Meet Our Owner</h2>
+            <div class="team-container">
+                <div class="team-member">
+                    <img src="Photo.jpg" alt="Vedant Jadhav">
+                    <h3>Vedant Jadhav</h3>
+                    <p>Student of WCE</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonials-section">
+            <h2>What Our Users Say</h2>
+            <div class="testimonial">
+                <p>"This platform has been a game-changer for my learning experience. Highly recommended!"</p>
+                <h4>- Suraj Upadhye</h4>
+            </div>
+            <div class="testimonial">
+                <p>"Excellent resources and well-structured courses. I love it!"</p>
+                <h4>- Shivam Pawar</h4>
+            </div>
+        </section>
+    </div>
+
+</body>
+</html>

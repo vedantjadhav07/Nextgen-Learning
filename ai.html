@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Details - Artificial Intelligence</title>
+    <link rel="stylesheet" href="course_d.css">
+</head>
+<body>
+    <nav class="navbar">
+        <h1 class="logo">NextGen Learning</h1>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="course.html">Courses</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+    
+    <header class="banner">
+        <h2>Artificial Intelligence Course</h2>
+        <p>Learn the fundamentals of AI, machine learning, and neural networks.</p>
+    </header>
+    
+    <section class="course-detail">
+        <h3>Course Overview</h3>
+        <p>This course covers Artificial Intelligence concepts, including machine learning, deep learning, and neural networks.</p>
+        
+        <h3>Learning Outcomes</h3>
+        <ul>
+            <li>Understand the basics of AI and its real-world applications</li>
+            <li>Learn about supervised, unsupervised, and reinforcement learning</li>
+            <li>Explore neural networks and deep learning algorithms</li>
+            <li>Work with AI frameworks like TensorFlow and PyTorch</li>
+            <li>Build AI models for image and text processing</li>
+        </ul>
+        
+        <h3>Estimated Completion Time</h3>
+        <p>6 weeks (Self-paced)</p>
+    </section>
+    
+    <section class="video-section">
+        <h3>Video Tutorials</h3>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/2ePf9rue1Ao" frameborder="0" allowfullscreen></iframe>
+    </section>
+    
+    <section class="resources-section">
+        <h3>Downloadable Resources</h3>
+        <ul>
+            <li><a href="resources/ai_basics.pdf" download>AI Basics (PDF)</a></li>
+            <li><a href="resources/machine_learning.pdf" download>Machine Learning Guide (PDF)</a></li>
+            <li><a href="resources/deep_learning_slides.pptx" download>Deep Learning Slides (PPT)</a></li>
+        </ul>
+    </section>
+   <!-- Quiz Introduction -->
+<section class="quiz-container" id="quizIntro">
+    <h2>Artificial Intelligence Quiz</h2>
+    <p>Test your knowledge of Artificial Intelligence! This quiz consists of 5 multiple-choice questions. You will have 60 seconds to complete the quiz.</p>
+    <button onclick="startQuiz()">Start Quiz</button>
+</section>
+
+<!-- Quiz Section -->
+<section class="quiz-container hidden" id="quizSection">
+    <h2>Quiz: Artificial Intelligence</h2>
+    <p class="timer">Time Left: <span id="time">60</span> seconds</p>
+
+    <form id="quizForm">
+        <div>
+            <p>1. What is Artificial Intelligence?</p>
+            <input type="radio" name="q1" value="a"> A programming language<br>
+            <input type="radio" name="q1" value="b"> The simulation of human intelligence in machines<br>
+            <input type="radio" name="q1" value="c"> A type of computer hardware<br>
+        </div>
+
+        <div>
+            <p>2. Which of the following is an application of AI?</p>
+            <input type="radio" name="q2" value="a"> Face recognition<br>
+            <input type="radio" name="q2" value="b"> Word processing software<br>
+            <input type="radio" name="q2" value="c"> Spreadsheet calculations<br>
+        </div>
+
+        <div>
+            <p>3. What is Machine Learning?</p>
+            <input type="radio" name="q3" value="a"> A subset of AI that allows computers to learn from data<br>
+            <input type="radio" name="q3" value="b"> A programming language for AI development<br>
+            <input type="radio" name="q3" value="c"> A method for manually coding intelligent behavior<br>
+        </div>
+
+        <div>
+            <p>4. Which type of AI can perform human-like tasks but is limited to specific functions?</p>
+            <input type="radio" name="q4" value="a"> General AI<br>
+            <input type="radio" name="q4" value="b"> Narrow AI<br>
+            <input type="radio" name="q4" value="c"> Super AI<br>
+        </div>
+
+        <div>
+            <p>5. Which AI algorithm is commonly used for decision-making and learning in AI systems?</p>
+            <input type="radio" name="q5" value="a"> Linear Regression<br>
+            <input type="radio" name="q5" value="b"> Decision Trees<br>
+            <input type="radio" name="q5" value="c"> Sorting Algorithms<br>
+        </div>
+
+        <button type="button" onclick="submitQuiz()">Submit Quiz</button>
+    </form>
+</section>
+
+<!-- Quiz Results -->
+<section class="quiz-container hidden" id="quizResults">
+    <h2>Quiz Results</h2>
+    <p id="scoreMessage"></p>
+    <button onclick="retryQuiz()">Retry Quiz</button>
+</section>
+
+<script>
+    let timer;
+    let timeLeft = 60;
+
+    function startQuiz() {
+        document.getElementById("quizIntro").classList.add("hidden");
+        document.getElementById("quizSection").classList.remove("hidden");
+
+        timeLeft = 60;
+        document.getElementById("time").innerText = timeLeft;
+        timer = setInterval(() => {
+            timeLeft--;
+            document.getElementById("time").innerText = timeLeft;
+            if (timeLeft <= 0) {
+                clearInterval(timer);
+                submitQuiz();
+            }
+        }, 1000);
+    }
+
+    function submitQuiz() {
+        clearInterval(timer);
+
+        let answers = {
+            q1: "b",
+            q2: "a",
+            q3: "a",
+            q4: "b",
+            q5: "b"
+        };
+
+        let score = 0;
+        let totalQuestions = Object.keys(answers).length;
+
+        for (let key in answers) {
+            let selected = document.querySelector(`input[name="${key}"]:checked`);
+            if (selected && selected.value === answers[key]) {
+                score++;
+            }
+        }
+
+        document.getElementById("quizSection").classList.add("hidden");
+        document.getElementById("quizResults").classList.remove("hidden");
+
+        let scoreMessage = `You scored ${score} out of ${totalQuestions}.`;
+        document.getElementById("scoreMessage").innerText = scoreMessage;
+    }
+
+    function retryQuiz() {
+        document.getElementById("quizResults").classList.add("hidden");
+        document.getElementById("quizIntro").classList.remove("hidden");
+    }
+</script>
+
+</body>
+</html>
